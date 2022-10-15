@@ -1,13 +1,19 @@
-<!-- <p>{{title}}</p>
+ <!-- <p>{{title}}</p>
 <p>{{11 * 5}}</p>
 <p>O resultado da soma de 20 + 10 é {{somar(20, 10)}}</p>
 <p>{{somar(n1, n2)}}</p>
 <input [type]="tipoInput" value="Valor inicial">
-<button (click)="mudarTipoDoInput()">Mostrar/esconder</button> -->
+<button (click)="mudarTipoDoInput()">Mostrar/esconder</button>  -->
 
-<input type="number" placeholder="Digite o 1º número" [(ngModel)]="n1" name="valor1">
+<!-- <input type="number" placeholder="Digite o 1º número" [(ngModel)]="n1" name="valor1">
 <input type="number" placeholder="Digite o 2º número" [(ngModel)]="n2" name="valor2">
 <p>
   {{n1}} + {{n2}} = {{n1 + n2}}
 
-</p>
+</p>  -->
+
+<div class="div-botoes">
+  <button (click)="subtrairValor()" class="subtrair">-</button>
+  <p class="valor">{{n1 + n2}}</p>
+  <button (click)="somarValor()" class="somar">+</button>
+</div>

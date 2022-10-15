@@ -30,4 +30,12 @@ export class AppComponent {
       this.tipoInput = 'password'
     }
   }
+
+  subtrairValor(): void{
+    this.n1 -= 1;
+  }
+  somarValor(): void{
+    this.n2 += 1;
+  }
 }
+

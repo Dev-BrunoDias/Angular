@@ -1,0 +1,31 @@
+
+
+
+.div-botoes {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(15, 204, 218);
+}
+
+.subtrair{
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    font-size: 50px;
+}
+
+.somar {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(11, 211, 28);
+    font-size: 50px;
+    
+}
+
+p {
+    font-size: 70px;
+}
