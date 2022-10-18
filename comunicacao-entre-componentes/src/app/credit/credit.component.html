@@ -1,0 +1,38 @@
+<div class="form-group">
+    <label>Nome do Cartão</label>
+    <input type="text" placeholder="Nome do cartão" [(ngModel)]="nomeCartao" name="valor1">
+    <input type="text" placeholder="Número do cartão" [(ngModel)]="numeroCartao" name="valor2">
+    <label class="v1" for="">Expiração CVC</label>
+    <div class="form-vencimento">
+        <input type="text" placeholder="CVV" [(ngModel)]="cvc" name="valor3">
+        <input type="text" placeholder="Mês" [(ngModel)]="mes" name="valor4">
+        <input type="text" placeholder="Ano" [(ngModel)]="ano" name="valor5">
+    </div>
+
+    <button type="button">Confirmar</button>
+</div>
+<div class="container">
+    <div class="Fundo">
+
+
+        <div class="front-card">
+            <div class="img">
+                <img src="https://seeklogo.com/images/M/MasterCard-logo-92AB7D0014-seeklogo.com.png" width="60">
+                <!-- <img src="https://seeklogo.com/images/V/visa-logo-BAA742E667-seeklogo.com.png" width="60"> -->
+            </div>
+            <div>
+                <p>{{numeroCartao}}</p>
+            </div>
+            <div class="fotter">
+                <p>{{mes}} / {{ano}}</p>
+                <p class="nomeCartao">{{nomeCartao}}</p>
+            </div>
+        </div>
+        <div class="verse">
+            <p>{{cvc}}</p>
+        </div>
+        <div class="back-card"></div>
+    </div>
+</div>
+
+<!-- <p> {{n1}} + {{n2}} = {{n1+n2}} </p> -->
