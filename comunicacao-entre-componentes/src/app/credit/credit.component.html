@@ -1,38 +1,34 @@
-<div class="form-group">
-    <label>Nome do Cartão</label>
-    <input type="text" placeholder="Nome do cartão" [(ngModel)]="nomeCartao" name="valor1">
-    <input type="text" placeholder="Número do cartão" [(ngModel)]="numeroCartao" name="valor2">
-    <label class="v1" for="">Expiração CVC</label>
-    <div class="form-vencimento">
-        <input type="text" placeholder="CVV" [(ngModel)]="cvc" name="valor3">
-        <input type="text" placeholder="Mês" [(ngModel)]="mes" name="valor4">
-        <input type="text" placeholder="Ano" [(ngModel)]="ano" name="valor5">
-    </div>
+ines (32 sloc)  1.51 KB
 
-    <button type="button">Confirmar</button>
-</div>
 <div class="container">
-    <div class="Fundo">
-
-
-        <div class="front-card">
-            <div class="img">
-                <img src="https://seeklogo.com/images/M/MasterCard-logo-92AB7D0014-seeklogo.com.png" width="60">
-                <!-- <img src="https://seeklogo.com/images/V/visa-logo-BAA742E667-seeklogo.com.png" width="60"> -->
-            </div>
-            <div>
-                <p>{{numeroCartao}}</p>
-            </div>
-            <div class="fotter">
-                <p>{{mes}} / {{ano}}</p>
-                <p class="nomeCartao">{{nomeCartao}}</p>
-            </div>
+    <div class="body-credit">
+        <div class="card-front">
+            <img src="https://clickfinancas.com/wp-content/uploads/2020/12/visa-cassino-brazl.jpg" alt="" class="bandeira">
+            <strong><p>{{numeroCartao}}</p></strong>
+            <p>{{nomeCartao}}</p>
         </div>
-        <div class="verse">
+        <div class="mesAno">
+            <strong>{{mes + "/" + ano}}</strong>
+        </div>
+        <div class="card-back">
+            <div class="tarja"></div>
             <p>{{cvc}}</p>
         </div>
-        <div class="back-card"></div>
+    </div>
+    <div class="form-container">
+        <form class="form-body">
+            <label for="valor1">Nome: </label>
+            <input type="text" name="valor1" id="name" placeholder="Digite seu nome aqui" [(ngModel)]="nomeCartao">
+            <label for="valor2">Numero do cartão: </label>
+            <input type="number" name="valor2" id="name2" placeholder="Digite numero do cartao" [(ngModel)]="numeroCartao">
+            <label for="valor3"> <p>Expiração &nbsp;&nbsp;&nbsp;&nbsp; CVC</p> </label>
+            <div class="form-vencimento">
+                <input type="number" name="valor3" id="name3" placeholder="Mês" [(ngModel)]="mes">
+                <label for="valor4"></label>
+                <input type="number" name="valor4" id="name4" placeholder="Ano" [(ngModel)]="ano">
+                <input type="number" name="valor5" id="name5" placeholder="000" [(ngModel)]="cvc">
+            </div>
+            <button type="submit" class="btn-confirmar"> CONFIRMAR </button>
+        </form>
     </div>
 </div>
-
-<!-- <p> {{n1}} + {{n2}} = {{n1+n2}} </p> -->
