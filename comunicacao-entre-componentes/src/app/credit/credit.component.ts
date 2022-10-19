@@ -13,19 +13,19 @@ export class CreditComponent implements OnInit {
   }
 
   @Input()
-  nomeCartao: string = ''
+  nomeCartao: string = ""
 
   @Input()
   numeroCartao: string = ""
   
   @Input()
-  mes: number = 0
+  mes: string = ''
 
   @Input()
-  ano: number = 0
+  ano: string = ''
 
   @Input()
-  cvc: number = 0
+  cvc: string = ''
 
   
 }
