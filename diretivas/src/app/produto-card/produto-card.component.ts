@@ -17,6 +17,23 @@ export class ProdutoCardComponent implements OnInit {
     preco: 0
   }
 
+  mostrarProduto: boolean = true
+
+  esconderProduto() {
+    this.mostrarProduto =false
+  }
+
+  const produto = [];
+  const produtos = this.produto.indexOf();
+  this.produto.splice(index, 1);
+
+ 
+
+ 
+  
+  
+  
+
   constructor() { }
 
   ngOnInit(): void {
