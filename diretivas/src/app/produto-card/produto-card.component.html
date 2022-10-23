@@ -1,47 +1,27 @@
-<!--
-    ngIf = Serve para a partir de uma determinada condição booleana
-    um elemento HTML ou componente apareça na sua tela ou não.
--->
-
-<div class="card" *ngIf="mostrarProduto == true">
-    <img [src]="prod.imagem"
-        alt="" class="card-image-top">
+<!--ngIf condicional if para mostrar elemento HTML ou componente-->
+<div class="card" *ngIf="mostrarProduto">
+    <img [src]="prod.imagem" alt="Pc Gamer" class="card-image-top">
     <div class="card-body">
-        <h5 class="card-title">{{prod.nome}}</h5>
-        <h6 class="card-subtitle text-muted">{{prod.preco}}</h6>
+        <h5 class="card-title">{{ prod.nome }}</h5>
+        <h6 class="card-subtitle text-muted">R${{prod.preco}}</h6>
 
-        <!---
-        menor ou igual a 10 -> vermelho
-        maior que 10 e menor ou igual a 30 - amarelo
-        maior que 30 e menor que 100 -> azul
-        maior que 100 -> verde
-
-        azul-> bg-primary
-        amarelo -> bg-warning
-        vermelho -> bg-danger
-        verde -> bg-success
-
-        ngClass permite adicionar ou remover classes de elemento a partir de condições lógicas (booleanas)
+        <!-- <= a 10 -> vermelho
+            > 10 && <= 30 -> amarelo
+            > 30 && < 100 -> azul
+            > 100 -> verde
         -->
-
-        <span 
-        class="badge mb-1 "
-        [ngClass]="{
-            'bg-danger': prod.estoque <= 10,
-            'bg-warning': prod.estoque > 10 && prod.estoque <= 30,
-            'bg-primary': prod.estoque > 30 && prod.estoque <= 100,
-            'bg-success': prod.estoque > 100
-        }"
-        >
-            {{prod.estoque}} unidades restantes
-        </span>
-        <p class="card-text text-truncate">
-            {{prod.descricao}}
-        </p>
-        <button class="btn btn-sm btn-danger" (click)="esconderProduto()">
-            Esconder Produto
-        </button>
-
-        <button class="btn btn-outline-danger mb-1 btn-sm">x</button>
-    </div>    
+        <span class="badge mb-1" 
+        [ngClass]="{'bg-danger': prod.estoque <= 10, 
+        'bg-warning': prod.estoque > 10 && prod.estoque <= 30, 
+        'bg-primary': prod.estoque > 30 && prod.estoque <= 100, 
+        'bg-success': prod.estoque > 100}"
+        >{{prod.estoque}} unidades restantes</span>
+        <p class="card-text text-truncate">{{prod.descricao}}</p>
+        <button class="btn btn-sm btn-danger" (click)="esconderProduto()">Esconder Produto</button>
+        <button class="x ms-5" (click)="excluir(prod.nome)">X</button>
+    </div>
+</div>
+<div class="card" *ngIf="mostrarProduto == false">
+    <p>O produto {{prod.nome}} foi removido para os usuarios.</p>
+    <button class="btn btn-sm btn-danger" (click)="esconderProduto()">Mostrar Produto</button>
 </div>
