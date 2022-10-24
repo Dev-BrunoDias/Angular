@@ -1,5 +1,5 @@
 <!--ngIf condicional if para mostrar elemento HTML ou componente-->
-<div class="card" *ngIf="mostrarProduto">
+<div class="card" *ngIf="mostrarProduto == true; else conteudoAlternativo">
     <img [src]="prod.imagem" alt="Pc Gamer" class="card-image-top">
     <div class="card-body">
         <h5 class="card-title">{{ prod.nome }}</h5>
@@ -18,10 +18,27 @@
         >{{prod.estoque}} unidades restantes</span>
         <p class="card-text text-truncate">{{prod.descricao}}</p>
         <button class="btn btn-sm btn-danger" (click)="esconderProduto()">Esconder Produto</button>
-        <button class="x ms-5" (click)="excluir(prod.nome)">X</button>
+        <button class="btn btn-sm" (click)="excluir(prod.nome)">&times;</button>
     </div>
 </div>
-<div class="card" *ngIf="mostrarProduto == false">
+<!-- <div class="card" *ngIf="mostrarProduto == false">
     <p>O produto {{prod.nome}} foi removido para os usuarios.</p>
     <button class="btn btn-sm btn-danger" (click)="esconderProduto()">Mostrar Produto</button>
-</div>
+</div> -->
+
+
+<!--
+    ng-template serve como um componente auxiliar que nos permite criar a estrutura "else"
+    de algum *ngIf
+
+    Por padrão, qualquer coisa que vc coloque dentro do componente aparecerá na sua tela.
+    Para o conteúdo aparecer, voce procisará criar o ' gatihlho'.
+-->
+<ng-template #conteudoAlternativo>
+    <div class="card">
+        <div class="card-body">
+            <p class="card-text"> O produto {{prod.nome}} não aparecerá para os usuários desse site</p>
+            <button class="btn btn-danger" (click)="aparecerProduto()">Mostrar novamente</button>
+        </div>
+    </div>
+</ng-template>

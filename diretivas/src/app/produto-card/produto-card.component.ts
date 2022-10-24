@@ -25,24 +25,19 @@ export class ProdutoCardComponent implements OnInit {
 
   mostrarProduto: boolean = true
 
-  esconderProduto(): void {
-    if(this.mostrarProduto){
+  esconderProduto(){
+    
       this.mostrarProduto = false
-    } else {
-      this.mostrarProduto = true
-    }
+    
   }
-
-  // showProduto(): void {
-  //   if(!this.mostrarProduto) {
-  //     this.mostrarProduto = true
-  //     }
-  // }
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  aparecerProduto():void {
+    this.mostrarProduto = true
+  }
 }
 
