@@ -16,6 +16,9 @@ export class CpfPipe implements PipeTransform {
     .replace(
       /(\d{3})(\d{3})(\d{3})(\d{2})/,
       '$1.$2.$3-$4'
+
+      //let valorFormatado = value.replace(/([0-9]{3})/, '$1.$2.$3-$4' )
+      //return valorFormatado;
     );
     return valorFormatado;
   }
