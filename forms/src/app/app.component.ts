@@ -13,4 +13,8 @@ export class AppComponent {
     email: '',
     senha: ''
   }
+
+  enviarForm() {
+    alert('formulário Enviado!')
+  }
 }

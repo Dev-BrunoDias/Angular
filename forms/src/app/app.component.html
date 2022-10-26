@@ -8,7 +8,7 @@
     #userForm="ngForm"
 -->
 
-      <form action="#" #userForm="ngForm">
+      <form action="#" #userForm="ngForm" (ngSubmit)="enviarForm()">
         <mat-form-field appearance="outline">
           <mat-label>Nome</mat-label>
           <input 
@@ -21,32 +21,60 @@
           #inputNome="ngModel"
 
           >
-          <mat-error class="error">
-            <p *ngIf="inputNome.touched && inputNome.invalid" style="color:red">  
-             <span *ngIf="inputNome.errors?.['required']">
+          <mat-error > 
+             <span *ngIf="inputNome.getError('required')">
+              Esse campo é obrigatório 
+             </span>
+             <span *ngIf="inputNome.getError('minlength')">
               Quantidade de caracteres insuficiente.
              </span>
-             <span *ngIf="inputNome.errors?.['minlength']">
-                Esse campo é obrigatório 
-             </span>
-            </p>
           </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Sobrenome</mat-label>
-          <input type="text" matInput [(ngModel)]="dadosUsuario.sobrenome" name="sobrenome">
+          <input 
+          type="text" 
+          matInput 
+          [(ngModel)]="dadosUsuario.sobrenome" 
+          name="sobrenome"
+          required
+          minlength="4"
+          #inputSobrenome="ngModel"
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input type="email" matInput [(ngModel)]="dadosUsuario.email" name="email">
+          <input 
+          type="email" 
+          matInput 
+          [(ngModel)]="dadosUsuario.email"
+          name="email"
+          required
+          email
+          #inputEmail="ngModel"
+          >
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Senha</mat-label>
-          <input type="password" matInput [(ngModel)]="dadosUsuario.senha" name="senha">
+          <input 
+          type="password" 
+          matInput 
+          [(ngModel)]="dadosUsuario.senha" 
+          name="senha"
+          required
+          minlength="8"
+          #inputSenha="ngModel"
+          >
         </mat-form-field>
-        <button type="submit" mat-raised-button color="primary">Cadastrar</button>
+        <button 
+        type="submit" 
+        mat-raised-button 
+        color="primary"
+        [disabled]="userForm.invalid"
+        >Cadastrar</button>
       </form>
     </mat-card-content>
   </mat-card>
 </div>
+<app-reactive></app-reactive>
 
