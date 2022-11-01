@@ -1,5 +1,5 @@
 import path from 'path'
-import { Observable, observable } from 'rxjs'
+import { filter, first, last, map, Observable, observable, take } from 'rxjs'
 import fs from 'fs'
 
 const filePaths: string[] = [
@@ -41,8 +41,14 @@ function lerArquivos(arquivos: string[]) {
       /**
        * readFileSync fará a leitura de um arquivo a partir do caminho desse arquivo no seu computador
        */
-      const conteudo = fs.readFileSync(arquivo, { encoding: 'utf-8' })
-      subscriber.next(conteudo) // responsável por mandar a mensagem de sucesso
+
+      try {
+        const conteudo = fs.readFileSync(arquivo, { encoding: 'utf-8' })
+        subscriber.next(conteudo)
+      } catch (error) {
+        subscriber.error(`Não foi possível ler o arquivo que esta no caminho ${arquivo}`)
+      }
+      // responsável por mandar a mensagem de sucesso
       //subscriber.error() // responsável por mandar a mensagem de erro
       //subscriber.complete() // responsável por mandar a mensagem de completo
 
@@ -54,13 +60,15 @@ function lerArquivos(arquivos: string[]) {
        *               e enviou os dados com sucesso
        * 
        *   -> Erro: O Observable teve algum problema durante a sua execução e não conseguiu
-       *            realizar sua tarefa de maneira satisfatória e não conseguiu enviar os dados
+       *            realizar sua tarefa de maneira satisfatória e não conseguiu enviar os dados.
        *            Quando um Observable passa pelo estágio de erro, sua execução para automaticamente
        * 
        *   -> Complemento: O Observable realizou TODAS as suas tarefas com sucesso e não possui
                            mais nenhum dado para poder enviar.
        */
     })
+
+    subscriber.complete()
   })
   return leitor
 }
@@ -79,16 +87,73 @@ let obs = lerArquivos(filePaths)
  * 3° → Completo
  */
 
-obs.subscribe(
+/**
+ *  Operadores => São funções que servem para manipular os dados que os observables enviam
+ */
+
+/**
+ *  Utilizando algum operador do RXJS, vamos extrair a primeira palavra de cada arquivo.
+ * 
+ *  A função pipe serve para você passar os operadores do RXJS que modificarão
+ * os dados que o Observable retorna pra você!
+ * 
+ *  O operador map() serve para pegar o dado que enviado pelo Observable
+ * e manipulá-lo de alguma forma para que vc acesse esse dado modificado.
+ * 
+ * O operador take() serve pra pegar uma quantidade x de dados que o Observable envia.
+ * 
+ *  O operador first() pega o primeiro arquivo 
+ */
+
+obs
+.pipe(
+  /**
+    map((texto) => {
+    return texto.split(' ')[0]
+  }),
+  map((palavra) => {
+    return palavra.length
+  })
+  */
+
+  /** 
+  filter((txt) => {
+    return !isHTML.test(txt) && !isCSS.test(txt)
+  }) 
+  */
+
+  //take(4) 
+
+  //first()
+  /** 
+  first((txt) =>{
+    return isHTML.test(txt)
+  })
+  */
+
+ //last()
+ last((txt) => {
+  return isCSS.test(txt)
+ })
+)
+.subscribe(
   (conteudoLido) => {
     console.log('---------- ARQUIVO LIDO COM SUCESSO ----------')
     console.log(conteudoLido)
     console.log('----------------------------------------------\n\n')
+  },
+  (erro) => {
+    console.log('OCORREU UM ERRO NA EXECUÇÂO DO OBSERVABLE')
+    console.log(erro)
+  },
+  () => {
+    console.log('TODOS OS ARQUIVOS FORAM LIDOS COM SUCESSO!!!')
   }
 )
 
-obs.subscribe(
+/**obs.subscribe(
   (conteudoLido) => {
     console.log(`Este arquivo possui ${conteudoLido.length} caracteres`)
   }
 )
+*/
