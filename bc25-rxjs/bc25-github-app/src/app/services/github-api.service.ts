@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { GithubRepo } from '../interfaces/GithubRepo';
 import { GithubUser } from '../interfaces/GithubUsers';
 
 
@@ -31,5 +32,11 @@ export class GithubApiService {
      * como parâmetro.
      */
     return this.http.get<GithubUser>(`${this.baseURL}${username}`)
+  }
+
+  procurarRepos(username:string) {
+    //https://api.github.com/users/nomeDeUsuario/repos
+
+    return this.http.get<GithubRepo[]>(`${this.baseURL}${username}/repos`)
   }
 }

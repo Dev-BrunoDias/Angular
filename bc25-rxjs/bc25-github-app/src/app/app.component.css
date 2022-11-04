@@ -22,22 +22,5 @@
   flex-direction: column;
 }
 
-.img {
-  border-radius: 50px;
-  width: 100px;
-  margin-right: 10px;
-}
 
-.profile {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.descricao {
-  display: flex;
-  flex-direction: column;
-  font-size: large;
-  color: red;
-}
 
