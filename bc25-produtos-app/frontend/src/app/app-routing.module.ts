@@ -1,6 +1,8 @@
-import { NgModule } from "@angular/core";
+import { Component, NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { CadastroComponent } from "./pages/cadastro/cadastro.component";
 import { ListarProdutosComponent } from "./pages/listar-produtos/listar-produtos.component";
+import { ProdutoComponent } from "./pages/produto/produto.component";
 
 const rotas: Routes = [
     {   //http://localhost:4200
@@ -12,6 +14,14 @@ const rotas: Routes = [
         //http://localhost:4200/produtos
         path: 'produtos',
         component: ListarProdutosComponent
+    },
+    {
+        path: 'produtos/:idProduto', // rota com o parâmetro idProduto
+        component: ProdutoComponent
+    },
+    {
+        path:'cadastro',
+        component: CadastroComponent
     }
 ]
 

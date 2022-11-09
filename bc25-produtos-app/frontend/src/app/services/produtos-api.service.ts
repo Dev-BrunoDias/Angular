@@ -9,13 +9,22 @@ import { Produto } from '../interfaces/Produto';
 export class ProdutosApiService {
 
   private readonly baseUrl: string = 'http://localhost:3000/produtos'
+  
+  
 
   constructor(
     private http: HttpClient
+
   ) { }
 
   // Listar informações -> GET
   listarProdutos() {
     return this.http.get<Array<Produto>>(this.baseUrl) // ou pode usar: return this.http.get<Produto[]>(this.baseUrl)
   }
+  procurarPorId(id: number) {
+    //http://localhost:3000/produtos/idProduto
+    return this.http.get<Produto>(`${this.baseUrl}/${id}`) // fazendo a requisição para recuperar um produto por id
+
+  }
+   
 }
