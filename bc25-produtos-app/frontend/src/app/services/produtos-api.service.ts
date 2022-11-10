@@ -21,10 +21,15 @@ export class ProdutosApiService {
   listarProdutos() {
     return this.http.get<Array<Produto>>(this.baseUrl) // ou pode usar: return this.http.get<Produto[]>(this.baseUrl)
   }
+
   procurarPorId(id: number) {
     //http://localhost:3000/produtos/idProduto
     return this.http.get<Produto>(`${this.baseUrl}/${id}`) // fazendo a requisição para recuperar um produto por id
 
+  }
+
+  criarProduto(prod: Produto){ // prod possui as informações do produto que será salvo
+    return this.http.post<Produto>(this.baseUrl, prod)
   }
    
 }

@@ -20,3 +20,9 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .icone {
+    right: 15px;
+    top:88%;
+    position: fixed;
+  }

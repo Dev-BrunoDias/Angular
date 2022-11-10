@@ -14,15 +14,7 @@ export class ProdutoComponent implements OnInit {
 
   // injetar um objeto que permite o acesso os parâmetros da rota
 
-  altImg: string = 'https://igp.rs.gov.br/themes/modelo-noticias/images/outros/GD_imgSemImagem.png'
-
-  produto: Produto = {
-    descricao: 'oafhoçidfjaidjfãpodfkãpodfka fpadokfaodkfaodkfp adfp faodkfaopfoapdvskjvçkmfv psjgposgpff',
-    foto: '',
-    id: 1,
-    nome: 'Pizza',
-    preco: '600'
-  }
+  
 
   produtoForm: FormGroup = new FormGroup({
     descricao: new FormControl('', [Validators.required]),
@@ -30,6 +22,10 @@ export class ProdutoComponent implements OnInit {
     nome: new FormControl('', [Validators.required]),
     preco: new FormControl('', [Validators.required])
   })
+
+  altImg: string = 'https://igp.rs.gov.br/themes/modelo-noticias/images/outros/GD_imgSemImagem.png'
+  produto!: Produto
+  
 
   constructor(
     private rota: ActivatedRoute, // permite acessar as informações (parâmetros) da rota que está ativa no momento
@@ -53,6 +49,7 @@ export class ProdutoComponent implements OnInit {
           preco: prod.preco
         })
       }
+     
     )
   }
 }

@@ -1,4 +1,10 @@
 <main class="container" *ngIf="produto">
+  <div>
+    <a routerLink="../" mat-fab color="warn" class="icone">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+    
+  </div>
   <mat-card>
     <img [src]="produto.foto || altImg" [alt]="produto.nome" mat-card-image>
     <mat-card-subtitle>{{ produto.nome }}</mat-card-subtitle>
@@ -42,8 +48,9 @@
     </mat-card-content>
   </mat-card>
 </main>
+
 <ul>
   <li>
-      <a routerLink="'/produtos/cadastro'">voltar para home</a>
+      <a routerLink="/produtos/cadastro">voltar para home</a>
   </li>
 </ul>

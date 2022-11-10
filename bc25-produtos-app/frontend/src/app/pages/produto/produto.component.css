@@ -8,6 +8,12 @@
   mat-card {
     width: 400px;
   }
+
+  div {
+    display: flex;
+    justify-content: start;
+    height: 70%;
+  }
   
   mat-card + mat-card {
     margin-left: 32px;
@@ -21,3 +27,10 @@
     display: flex;
     flex-direction: column;
   }
+
+  .icone {
+    right: 15px;
+    top:88%;
+    position: fixed;
+  }
+
