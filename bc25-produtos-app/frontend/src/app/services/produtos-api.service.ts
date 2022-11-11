@@ -31,5 +31,10 @@ export class ProdutosApiService {
   criarProduto(prod: Produto){ // prod possui as informações do produto que será salvo
     return this.http.post<Produto>(this.baseUrl, prod)
   }
+
+  deletarPorId(id: number) {
+    //http://localhost:3000/produtos/id
+    return this.http.delete<void>(`${this.baseUrl}/${id}`)
+  }
    
 }

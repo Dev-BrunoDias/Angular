@@ -25,6 +25,7 @@ export class ProdutoComponent implements OnInit {
 
   altImg: string = 'https://igp.rs.gov.br/themes/modelo-noticias/images/outros/GD_imgSemImagem.png'
   produto!: Produto
+  router: any;
   
 
   constructor(
@@ -50,6 +51,15 @@ export class ProdutoComponent implements OnInit {
         })
       }
      
+    )
+  }
+
+  deletar(){
+    this.produtosService.deletarPorId(this.produto.id as number)
+    .subscribe(
+      () => {
+        this.router.navigateByUrl('/produtos')
+      }
     )
   }
 }

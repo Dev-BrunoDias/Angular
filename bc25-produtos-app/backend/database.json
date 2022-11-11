@@ -141,13 +141,6 @@
       "foto": ""
     },
     {
-      "nome": "Pc Gamer",
-      "preco": 2.5,
-      "descricao": "Pc Gamer muito bom para iniciante",
-      "foto": "https://m.media-amazon.com/images/I/51g15AGs0nL._AC_SL1000_.jpg",
-      "id": 21
-    },
-    {
       "nome": "Pizza",
       "preco": 25,
       "descricao": "Pizza sabor frango com catupiry",
@@ -167,27 +160,6 @@
       "descricao": "Pizza sabor frango com catupiry",
       "foto": "http://bonissima.com.br/web/image/product.template/34332/image_1024?unique=b35c554",
       "id": 24
-    },
-    {
-      "nome": "Pizza",
-      "preco": 25,
-      "descricao": "Pizza sabor frango com catupiry",
-      "foto": "http://bonissima.com.br/web/image/product.template/34332/image_1024?unique=b35c554",
-      "id": 25
-    },
-    {
-      "nome": "Pizza",
-      "preco": 25,
-      "descricao": "Pizza de frango com catupiry",
-      "foto": "http://bonissima.com.br/web/image/product.template/34332/image_1024?unique=b35c554",
-      "id": 26
-    },
-    {
-      "nome": "Pizza ",
-      "preco": 25,
-      "descricao": "Pizza sabor portuguesa",
-      "foto": "https://www.comidaereceitas.com.br/wp-content/uploads/2020/06/Pizza-portuguesa-de-frigideira-freeepik.jpg",
-      "id": 27
     }
   ]
 }
